@@ -2,4 +2,4 @@
 identity-oauth2-grant-tokenexchange.iml
 /target
 /component/grant-type/target
-/component/grant-type/org.wso2.carbon.identity.oauth2.grant.jwt.tokenexchange.iml
+/component/grant-type/org.wso2.carbon.identity.oauth2.grant.tokenexchange.iml

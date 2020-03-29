@@ -22,11 +22,11 @@
             </activation>
             <modules>
                 <module>component/grant-type</module>
+<!--                FIXME set feature profile-->
 <!--                <module>feature</module>-->
             </modules>
         </profile>
     </profiles>
-
     <name>identity-oauth2-grant-tokenexchange</name>
     <url>http://wso2.org</url>
 
