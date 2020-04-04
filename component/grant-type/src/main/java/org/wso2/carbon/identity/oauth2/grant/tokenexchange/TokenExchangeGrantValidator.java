@@ -24,9 +24,9 @@ import org.apache.oltu.oauth2.common.validators.AbstractValidator;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is to verify if all the require parameters are there in the request.
- * Required parameter for 'Delegation', 'actor_token_type' will not be checked here
- * as it is only required if 'actor_token' is present in the request.
+ * This is to verify if all the required parameters are there in the request.
+ * Required parameter for Delegation, 'actor_token_type' will not be checked here
+ * as it is only required when an'actor_token' presents in the request.
  */
 public class TokenExchangeGrantValidator extends AbstractValidator<HttpServletRequest> {
 

@@ -18,6 +18,10 @@
 
 package org.wso2.carbon.identity.oauth2.grant.tokenexchange;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class TokenExchangeConstants {
 
     public static final String RESOURCE = "resource";
@@ -29,4 +33,15 @@ public class TokenExchangeConstants {
     public static final String ACTOR_TOKEN_TYPE = "actor_token_type";
     public static final String ISSUED_TOKEN_TYPE = "issued_token_type";
     public static final String TOKEN_TYPE = "token_type";
+    public static final String TOKEN_EXCHANGE = "urn:ietf:params:oauth:grant-type:token-exchange";
+
+    static class ActorTokenTypes {
+        public static final String ACCESS_TOKEN = "urn:ietf:params:oauth:token-type:access_token";
+        public static final String REFRESH_TOKEN = "urn:ietf:params:oauth:token-type:refresh_token";
+        public static final String ID_TOKEN = "urn:ietf:params:oauth:token-type:id_token";
+        // TODO Commented as we don't support yet. Make extensible
+        // public static final String SAML2 = "urn:ietf:params:oauth:token-type:saml2";
+        // TODO Check best practise here
+        public static final String[] actorTokenTypesArray = {ACCESS_TOKEN, REFRESH_TOKEN, ID_TOKEN};
+    }
 }
