@@ -18,10 +18,6 @@
 
 package org.wso2.carbon.identity.oauth2.grant.tokenexchange;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class TokenExchangeConstants {
 
     public static final String RESOURCE = "resource";

@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * This is to verify if all the required parameters are there in the request.
  * Required parameter for Delegation, 'actor_token_type' will not be checked here
- * as it is only required when an'actor_token' presents in the request.
+ * as it is only required when an 'actor_token' is in the request.
  */
 public class TokenExchangeGrantValidator extends AbstractValidator<HttpServletRequest> {
 

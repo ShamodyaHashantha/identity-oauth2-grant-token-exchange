@@ -18,7 +18,6 @@
 
 package org.wso2.carbon.identity.oauth2.grant.tokenexchange;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -41,7 +40,7 @@ public class TokenExchangeGrantHandler extends AbstractAuthorizationGrantHandler
 
     /**
      * This method checks if the received exchange request is a delegation request.
-     * Delegation request must have 'actor_token' and 'actor_token_type' parameters.
+     * Delegation requests must have 'actor_token' and 'actor_token_type' parameters.
      * @param tokenReq
      * @return
      * @throws IdentityOAuth2Exception
@@ -55,7 +54,7 @@ public class TokenExchangeGrantHandler extends AbstractAuthorizationGrantHandler
                 // TODO check if this is the best approach.
                 // tokenReq.getRequestParameters() is a String[] and each element is a String[]. Hence the hassle.
                 // Considered the param value should present as the first element of the value array.
-                // Check if ACTOR_TOKEN presents
+                // Check if 'actor_token' presents
                 if (!actorTokenFound && TokenExchangeConstants.ACTOR_TOKEN.equals(parameters[i].getKey())
                         && parameters[i].getValue() != null
                         && parameters[i].getValue().length > 0
@@ -64,7 +63,7 @@ public class TokenExchangeGrantHandler extends AbstractAuthorizationGrantHandler
                     log.debug("Actor token present in the token request : " + parameters[i].getValue()[0]);
                 }
 
-                // Check if ACTOR_TOKEN_TYPE presents
+                // Check if 'actor_token_type' presents
                 if (!actorTokenTypeFound && TokenExchangeConstants.ACTOR_TOKEN_TYPE.equals(parameters[i].getKey())
                         && parameters[i].getValue() != null
                         && parameters[i].getValue().length > 0
@@ -76,11 +75,11 @@ public class TokenExchangeGrantHandler extends AbstractAuthorizationGrantHandler
                 }
             }
         }
-        // If ACTOR_TOKEN presents, ACTOR_TOKEN_TYPE must present.
+        // If 'actor_token' presents, 'actor_token_type' must present.
         if (actorTokenFound && !actorTokenTypeFound) {
             throw new IdentityOAuth2Exception(" Actor token type parameter not found in the request.");
         }
-        return true;
+        return actorTokenFound && actorTokenTypeFound;
     }
 
     private boolean isValidActorTokenType(String actorTokenType) throws IdentityOAuth2Exception {
